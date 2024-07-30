@@ -34,5 +34,19 @@ class CSV:
             writer.writerow(new_data)
         print("Data added successfully")
 
-CSV.initialize_csv()                                                        # initialize the csv file
-#CSV.add_data('01-01-2024', 1000, 'Income', 'Salary')                       # manual check add data 
+    @classmethod
+    def get_transactions(cls, start_date, end_date):
+        df = pd.read_csv(cls.CSV_FILE)
+
+def add():
+    CSV.initialize_csv()
+    date = get_date("Enter the date (DD-MM-YYYY) or press ENTER for today's date: ", allow_default=True)
+    amount = get_amount()
+    category = get_category()
+    description = get_description()
+    CSV.add_data(date, amount, category, description)
+
+add()
+
+# CSV.initialize_csv()                                                       # initialize the csv file
+# CSV.add_data('01-01-2024', 1000, 'Income', 'Salary')                       # manual check add data 
